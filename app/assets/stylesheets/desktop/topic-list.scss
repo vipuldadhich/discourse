@@ -1,0 +1,293 @@
+// --------------------------------------------------
+// Topic lists
+// --------------------------------------------------
+
+// List controls
+// --------------------------------------------------
+
+.list-controls {
+  .nav {
+    float: left;
+    margin-bottom: 18px;
+  }
+
+  .btn {
+    float: right;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  a.badge-category {
+    padding: 3px 12px;
+    font-size: 16px;
+
+    &.category-dropdown-button {
+      height: 24px;
+      padding: 3px 9px;
+      i { height: 20px; }
+    }
+
+  }
+
+  .badge-category {
+    font-weight: normal;
+    text-transform: capitalize;
+  }
+
+}
+
+
+// Base list
+// --------------------------------------------------
+
+#topic-list {
+  margin: 0 0 10px;
+  .fa-thumb-tack {color: $primary;}
+  .fa-thumb-tack.unpinned {color: $primary;}
+  a.title {color: $primary;}
+  a.title:visited:not(.badge-notification) {color: scale-color($primary, $lightness: 35%);}
+  th,
+  td {
+    padding: 12px 5px;
+    &:first-of-type {
+      padding-left: 10px;
+    }
+    &:last-of-type {
+      padding-right: 10px;
+    }
+  }
+  th {
+    button i.fa {color: scale-color($primary, $lightness: 50%);}
+  }
+
+
+  button.bulk-select {
+    padding: 0;
+    background: transparent;
+    &:hover {
+      color: scale-color-diff();
+    }
+  }
+
+  .star {
+    width: 20px;
+    padding-right: 0;
+    .fa-star {
+      position: relative;
+    }
+    + .main-link {
+      padding-left: 5px;
+    }
+  }
+  .main-link {
+    width: 495px;
+  }
+
+  .badge-notification {
+    position: relative;
+    top: -2px;
+  }
+  .category {
+    padding: 0 20px 0 20px;
+    min-width: 80px;
+  }
+  .posters {
+    min-width: 150px;
+  }
+  .participants {
+    min-width: 85px;
+  }
+  .posters, .participants {
+    > a {
+      float: left;
+      margin-right: 4px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+  .avatar {
+    &.latest {
+      @include box-shadow(0 0 6px 1px desaturate(scale-color($tertiary, $lightness: 30%), 35%));
+    }
+  }
+
+  .sortable {
+    cursor: pointer;
+    &:hover {
+      background-color: scale-color-diff();
+    }
+    @include unselectable;
+  }
+  .likes {
+    width: 65px;
+  }
+  .views {
+    width: 65px;
+  }
+  .posts {
+    width: 65px;
+  }
+  .activity {
+    width: 60px;
+  }
+  .age {
+    width: 60px;
+  }
+  .with-year {
+    white-space: nowrap;
+  }
+}
+
+#list-area .top-lists h2 { margin: 5px 0 10px; }
+
+#topic-list tbody tr.has-excerpt .star {
+  vertical-align: top;
+  margin-top: 3px;
+}
+
+#topic-list.categories {
+  a.title {color: $tertiary;}
+  a.title:visited:not(.badge-notification) {color: scale-color($tertiary, $lightness: 35%);}
+
+  th.posts {
+    position: relative;
+  }
+  > tbody > tr:nth-child(odd) {
+    background-color: darken($secondary, 3%);
+  }
+  > tbody > tr:nth-child(even) {
+    background-color: $secondary;
+  }
+  th .toggle-admin {
+    position: absolute;
+    padding: 3px 8px;
+    font-size: 12px;
+    right: -35px;
+    top: 4px;
+  }
+  th.latest, td.latest {
+    padding-left: 12px;
+  }
+  th.num {
+    width: 45px;
+  }
+  th.stats {
+    width: 90px;
+  }
+  td.latest {
+    vertical-align: top;
+    padding: 8px;
+  }
+  .last-user-info {
+    font-size: 12px;
+  }
+  .has-description {
+    td.category {
+      padding-top: 15px;
+    }
+  }
+  .category{
+    position: relative;
+    width: 45%;
+
+    h3 {
+      display: inline-block;
+      font-size: 18px;
+      a[href] {
+        color: $primary;
+      }
+    }
+    .subcategories {
+      margin-top: 10px;
+    }
+    .featured-users {
+      float: right;
+      margin-right: 13px;
+    }
+    .category-description {
+      margin-top: 10px;
+    }
+    .clear-badge {
+      color: $primary;
+    }
+    .badge-category.bigger {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+  }
+
+  .featured-topic {
+    margin: 6px 0;
+    a.last-posted-at, a.last-posted-at:visited {
+      color: scale-color($primary, $lightness: 50%);
+    }
+  }
+
+  .badge-category {
+    display: inline-block;
+    margin-top: 1px;
+  }
+}
+
+// Category list
+// --------------------------------------------------
+
+.category-list-item {
+  th .badge-category {
+    float: left;
+  }
+  .posters {
+    display: block;
+    width: 165px;
+  }
+}
+
+#topic-list-bottom {
+  margin: 20px 0;
+}
+
+// Misc. stuff
+// --------------------------------------------------
+
+#list-area {
+  h2 {
+    margin: 20px 0 10px;
+  }
+}
+
+.category-dropdown-menu {
+  max-height: 350px;
+  margin-top: 30px;
+  min-width: 152px;
+}
+
+#bulk-select {
+  position: fixed;
+  right: 20px;
+  padding: 5px;
+  background-color: $secondary;
+}
+
+button.dismiss-read {
+  float: right;
+  margin-bottom: 5px;
+}
+
+.category-notification-menu .dropdown-menu {
+  right: 0;
+  top: 30px;
+  bottom: auto;
+  left: auto;
+}
+
+.category-heading {
+  clear: both;
+}
+.category-logo {
+  max-height: 150px;
+  float: left;
+  margin-bottom: 15px;
+}

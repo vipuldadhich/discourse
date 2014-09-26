@@ -1,0 +1,371 @@
+// styles that apply to the user page
+
+.groups {
+  .group-link {
+    color: $tertiary;
+  }
+}
+
+.user-preferences {
+  input.category-group {
+    width: 500px;
+  }
+
+  .autocomplete .badge-category {
+    margin: 2px;
+    font-weight: normal;
+  }
+
+  .autocomplete .badge-category.selected {
+    font-weight: bold;
+  }
+
+  textarea {
+    width: 530px;
+    height: 100px;
+  }
+
+  input[type=text] {
+    @include small-width {
+      width: 450px;
+    }
+  }
+
+  #pagedown-editor {
+    width: 450px;
+
+    textarea {
+      width: 440px;
+    }
+  }
+
+  .bio-composer #wmd-quote-post {
+    display: none;
+  }
+
+  .static {
+    color: $primary;
+    display: inline-block;
+  }
+  .instructions {
+    color: scale-color($primary, $lightness: 50%);
+    margin-left: 160px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 80%;
+    line-height: 1.4em;
+  }
+  .avatar {
+    margin-left: 3px;
+  }
+  .instructions a[href] {
+    color: $tertiary;
+  }
+  .warning {
+    background-color: scale-color($danger, $lightness: 30%);
+    padding: 5px 8px;
+    color: $secondary;
+    width: 520px;
+  }
+
+  .other .controls {
+    select {
+      width: 280px;
+    }
+  }
+}
+
+.user-navigation {
+  width: 240px;
+  margin-right: 20px;
+  float: left;
+
+  h3 {
+    color: $primary;
+    margin: 20px 0 10px 0;
+  }
+
+}
+
+.user-main {
+  width: 850px;
+  float: left;
+  margin-bottom: 50px;
+
+  @include medium-width {
+    width: 735px;
+  }
+
+  @include small-width {
+    width: 680px;
+  }
+
+  table.group-members {
+    width: 100%;
+    th.seen {
+      text-align: right;
+    }
+    td.avatar {
+      width: 60px;
+    }
+    td {
+      img {
+        margin-right: 10px;
+      }
+      span.last-seen-at {
+        float: right;
+        color: $primary;
+      }
+    }
+  }
+
+  .user-content {
+    padding: 10px 8px;
+    background-color: $secondary;
+    border: 1px solid scale-color-diff();
+    margin-bottom: 10px;
+
+    .btn.right {
+      float: right
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 10px;
+
+      th {
+        text-align: left;
+        border-bottom: 1px solid scale-color-diff();
+        padding: 5px;
+      }
+
+      td {
+        padding: 5px;
+        border-bottom: 1px solid scale-color-diff();
+      }
+    }
+  }
+
+  .about {
+    background-color: $primary;
+    background-size: cover;
+    background-position: center center;
+
+    margin-bottom: 10px;
+    overflow: hidden;
+    color: $secondary;
+
+
+    .details {
+      text-align: center;
+      padding: 12px;
+
+
+      h1 {
+        font-size: 30px;
+        font-weight: normal;
+      }
+
+      h2 {
+        font-size: 20px;
+        margin-bottom: 6px;
+        font-weight: normal;
+        margin-top: 5px;
+      }
+
+      a[href] {
+        color: $secondary;
+      }
+
+      img.avatar {
+        margin-bottom: 10px;
+      }
+
+      .suspended {
+        color: $danger;
+      }
+
+      .primary {
+        position: relative;
+        float: left;
+        width: 71%;
+        color: $secondary;
+        text-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px;
+
+        h1, h2 {font-weight: bold;}
+
+        .bio {
+          color: $secondary;
+          text-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px;
+          max-height: 300px;
+          overflow: auto;
+
+          a[href] {
+            color: $secondary;
+            text-decoration: underline;
+            text-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px;
+          }
+        }
+
+      }
+
+      .secondary {
+        float: right;
+        background-color: rgba(scale-color($primary, $lightness: 20%), .9);
+        text-align: right;
+        padding: 0 20px;
+        max-width: 165px;
+
+        dd {
+          margin: 0 0 7px 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        dt {
+          color: rgba($secondary, .7);
+          margin: 0;
+        }
+      }
+    }
+
+    .controls {
+      background-color: scale-color($primary, $lightness: 30%);
+      padding: 12px;
+      height: 30px;
+
+      .right {
+        float: right;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .about.collapsed-info {
+    .controls {
+      margin-top: 0;
+    }
+
+    .staff-counters {
+      display: none;
+    }
+
+    .details {
+      .secondary { display: none; }
+      .bio { display: none; }
+
+      .primary {
+        width: 100%;
+        text-align: left;
+        margin-top: 0;
+
+        .avatar {
+          float: left;
+          margin-right: 10px;
+          width: 45px;
+          height: 45px;
+        }
+
+        h1 {
+          font-size: 20px;
+          line-height: 22px;
+        }
+
+        h2 {
+          font-size: 17px;
+          line-height: 20px;
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+
+  .user-stream {
+    .excerpt {
+      margin: 5px 0;
+      font-size: 13px;
+      word-wrap: break-word;
+      color: $primary;
+    }
+    .item.moderator-action {
+      background-color:  scale-color($highlight, $lightness: 50%);
+    }
+    .item.deleted {
+      opacity: 0.8;
+      background-color: scale-color($danger, $lightness: 50%);
+    }
+    .item.hidden {
+      display: block;
+      opacity: 0.4;
+    }
+    .item {
+      padding: 20px 8px 15px 8px;
+      background-color: $secondary;
+      border-bottom: 1px solid scale-color-diff();
+    }
+    .type {
+      color: $primary;
+    }
+    span.name {
+      color: $primary;
+    }
+    .time {
+      display: block;
+      float: right;
+      color: $primary;
+      margin-right: 8px;
+      font-size: 11px;
+    }
+    .avatar-link {
+      float: left;
+      margin-right: 4px;
+    }
+    .title {
+      display: block;
+      font-size: 14px;
+    }
+    .edit-reason {
+      background-color: scale-color($highlight, $lightness: 25%);
+      padding: 3px 5px 5px 5px;
+    }
+    .remove-bookmark {
+      float: right;
+      margin-top: -4px;
+    }
+  }
+
+  .staff-counters {
+    text-align: left;
+    position: absolute;
+    top: -20px;
+    > div {
+      margin-bottom: 10px;
+    }
+  }
+
+  .pill {
+    border-radius: 15px;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+  }
+  .helpful-flags {
+    background-color: green;
+  }
+  .flagged-posts {
+    background-color: #E49735;
+  }
+  .deleted-posts {
+    background-color: #EC441B;
+  }
+  .suspensions {
+    background-color: #c22020;
+  }
+}

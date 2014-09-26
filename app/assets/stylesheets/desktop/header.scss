@@ -1,0 +1,62 @@
+// --------------------------------------------------
+// Discourse header
+// --------------------------------------------------
+
+.d-header {
+  left: 0;
+  z-index: 1000;
+  padding-top: 3px;
+  height: 60px;
+  .fa-home {
+    padding-right: 3px;
+    padding-top: 3px;
+  }
+  .current-username {
+    a {
+      display:block;
+      margin-top: 10px;
+    }
+  }
+}
+
+/* needs to be global, used in user-drop down and user page too */
+.unread-private-messages {
+  background-color: $success;
+}
+
+#main {
+  position: relative;
+}
+
+#main-outlet {
+  padding-top: 82px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+// Dropdowns
+// --------------------------------------------------
+
+.d-dropdown {
+  width: 320px;
+  overflow: auto;
+  // Common
+
+  .heading {
+    border-top: 1px solid scale-color-diff();
+  }
+
+  // Categories
+
+  .category {
+    line-height: 20px;
+  }
+
+  .btn {
+    padding: 2px 8px;
+    margin-bottom: 2px;
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}
