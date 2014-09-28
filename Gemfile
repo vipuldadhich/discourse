@@ -86,6 +86,7 @@ gem 'active_model_serializers'
 
 
 gem 'onebox'
+gem 'authrocket'
 
 gem 'ember-rails'
 gem 'ember-source', '1.6.0.beta.2'
