@@ -44,7 +44,7 @@
   {{#if Discourse.SiteSettings.enable_local_logins}}
     <button class="btn btn-large btn-primary"
       {{bind-attr disabled="loginDisabled"}}
-      {{action login}}>
+      {{action authrocketLogin}}>
         <i class="fa fa-unlock"></i>&nbsp;{{loginButtonText}}
     </button>
 

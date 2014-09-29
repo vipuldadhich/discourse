@@ -124,6 +124,32 @@ class User < ActiveRecord::Base
 
   EMAIL = %r{([^@]+)@([^\.]+)}
 
+  def self.from_authrocket(ar_user)
+    where(authrocket_id: ar_user.id).first || create_from_authrocket(ar_user)
+  end
+
+  def self.create_from_authrocket(ar_user)
+    create do |user|
+      user.authrocket_id = ar_user.id
+      user.username      = sanitize_authrocket_username(ar_user.username)
+      user.name          = ar_user.name
+      user.email         = ar_user.email
+      user.active        = true
+      user.approved      = true
+      user.admin         = authrocket_admin?(ar_user)
+     end
+  end
+
+  def self.authrocket_admin?(ar_user)
+    ar_user.memberships.any? do |membership|
+      membership.any_permission? "feature.admin"
+    end
+  end
+
+  def self.sanitize_authrocket_username(username)
+    username.split("@").first
+  end
+
   def self.new_from_params(params)
     user = User.new
     user.name = params[:name]

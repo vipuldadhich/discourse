@@ -42,6 +42,18 @@ class SessionController < ApplicationController
     end
   end
 
+  def authrocket_login
+    token = AuthRocket::Event.validate_token params[:token]
+    user  = User.from_authrocket token.user
+
+    if user
+      log_on_user user
+      render nothing: true, status: :ok
+    else
+      render nothing: true, status: :bad_request
+    end
+  end
+
   def create
 
     unless allow_local_auth?

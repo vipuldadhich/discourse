@@ -45,6 +45,38 @@ export default Discourse.Controller.extend(Discourse.ModalFunctionality, {
   }.property('loggingIn', 'authenticate'),
 
   actions: {
+    authrocketLogin: function() {
+      var self = this;
+
+      if (this.blank('loginName') || this.blank('loginPassword')){
+        self.flash(I18n.t('login.blank_username_or_password'), 'error');
+        return;
+      }
+
+      this.set('loggingIn', true);
+
+      AuthRocket.authenticate({
+        username: this.get('loginName'),
+        password: this.get('loginPassword'),
+      }, function(response) {
+        if (response && !response.error) {
+          Discourse.ajax("/session/authrocket_login", {
+            data: { token: response.token },
+            type: 'POST'
+          }).then(function() {
+            document.location.href = document.location.href;
+          }, function() {
+            // Server error
+            self.flash(I18n.t('login.error'), 'error');
+            self.set('loggingIn', false);
+          });
+        } else {
+          self.flash(response.error, 'error');
+          self.set('loggingIn', false);
+        }
+      });
+    },
+
     login: function() {
       this.set('loggingIn', true);
 

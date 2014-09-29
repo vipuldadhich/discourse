@@ -23,6 +23,12 @@
     <%= render_google_universal_analytics_code %>
 
     <%= yield :head %>
+    
+    <script src="https://js.authrocket.com/v1/authrocket.js" type="text/javascript"></script>
+
+    <script>
+      AuthRocket.setInstanceUrl('https://authlogin.e1.loginrocket.com/v1/');
+    </script>
   </head>
 
   <body>
