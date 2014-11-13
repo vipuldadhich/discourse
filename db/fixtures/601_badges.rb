@@ -2,7 +2,7 @@
 trust_level_badges = [
   {id: 1, name: "Basic User", type: 3},
   {id: 2, name: "Regular User", type: 3},
-  {id: 3, name: "Leader", type: 2},
+  {id: 3, name: "Leaders", type: 2},
   {id: 4, name: "Elder", type: 1}
 ]
 

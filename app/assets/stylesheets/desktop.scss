@@ -1,6 +1,5 @@
 @import "common";
 
-/* @import "desktop/*"; TODO: get this working again */
 
 @import "desktop/compose";
 @import "desktop/discourse";
@@ -16,6 +15,8 @@
 
 /* These files doesn't actually exist, they are injected by DiscourseSassImporter. */
 
+
 @import "plugins";
 @import "plugins_desktop";
 @import "category_backgrounds";
+

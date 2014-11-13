@@ -4,10 +4,10 @@ if Rails.env.production?
     /^ActionController::RoutingError \(No route matches/
   ]
 
-  Logster.config.authorize_callback = lambda{|env|
-    user = CurrentUser.lookup_from_env(env)
-    user && user.admin
-  }
+#  Logster.config.authorize_callback = lambda{|env|
+ #   user = CurrentUser.lookup_from_env(env)
+  #  user && user.admin
+  #}
 end
 
 # middleware that logs errors sits before multisite

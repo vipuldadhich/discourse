@@ -350,18 +350,22 @@ end
 #  user_id             :integer          not null
 #  post_action_type_id :integer          not null
 #  deleted_at          :datetime
-#  created_at          :datetime
-#  updated_at          :datetime
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #  deleted_by_id       :integer
-#  message             :text
 #  related_post_id     :integer
 #  staff_took_action   :boolean          default(FALSE), not null
-#  defer               :boolean
-#  defer_by            :integer
-#  targets_topic       :boolean          default(FALSE)
+#  deferred_by_id      :integer
+#  targets_topic       :boolean          default(FALSE), not null
+#  agreed_at           :datetime
+#  agreed_by_id        :integer
+#  deferred_at         :datetime
+#  disagreed_at        :datetime
+#  disagreed_by_id     :integer
 #
 # Indexes
 #
-#  idx_unique_actions             (user_id,post_action_type_id,post_id,deleted_at) UNIQUE
+#  idx_unique_actions             (user_id,post_action_type_id,post_id,targets_topic) UNIQUE
+#  idx_unique_flags               (user_id,post_id,targets_topic) UNIQUE
 #  index_post_actions_on_post_id  (post_id)
 #

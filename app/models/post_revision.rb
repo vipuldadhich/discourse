@@ -117,8 +117,9 @@ end
 #  post_id       :integer
 #  modifications :text
 #  number        :integer
-#  created_at    :datetime
-#  updated_at    :datetime
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  hidden        :boolean          default(FALSE), not null
 #
 # Indexes
 #

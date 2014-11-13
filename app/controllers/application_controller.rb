@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   include CurrentUser
   include CanonicalURL::ControllerExtensions
   include JsonError
+  include ActionController::Serialization
 
   serialization_scope :guardian
 

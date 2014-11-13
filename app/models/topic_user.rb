@@ -274,7 +274,7 @@ end
 #  starred                  :boolean          default(FALSE), not null
 #  posted                   :boolean          default(FALSE), not null
 #  last_read_post_number    :integer
-#  seen_post_count          :integer
+#  highest_seen_post_number :integer
 #  starred_at               :datetime
 #  last_visited_at          :datetime
 #  first_visited_at         :datetime
@@ -290,4 +290,5 @@ end
 # Indexes
 #
 #  index_topic_users_on_topic_id_and_user_id  (topic_id,user_id) UNIQUE
+#  index_topic_users_on_user_id_and_topic_id  (user_id,topic_id) UNIQUE
 #

@@ -749,15 +749,15 @@ end
 #
 #  id                            :integer          not null, primary key
 #  username                      :string(60)       not null
-#  created_at                    :datetime
-#  updated_at                    :datetime
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
 #  name                          :string(255)
 #  seen_notification_id          :integer          default(0), not null
 #  last_posted_at                :datetime
 #  email                         :string(256)      not null
 #  password_hash                 :string(64)
 #  salt                          :string(32)
-#  active                        :boolean
+#  active                        :boolean          default(FALSE), not null
 #  username_lower                :string(60)       not null
 #  auth_token                    :string(32)
 #  last_seen_at                  :datetime
@@ -789,17 +789,21 @@ end
 #  uploaded_avatar_id            :integer
 #  email_always                  :boolean          default(FALSE), not null
 #  mailing_list_mode             :boolean          default(FALSE), not null
-#  primary_group_id              :integer
 #  locale                        :string(10)
+#  primary_group_id              :integer
 #  registration_ip_address       :inet
 #  last_redirected_to_top_at     :datetime
 #  disable_jump_reply            :boolean          default(FALSE), not null
+#  authrocket_id                 :string(255)
+#  edit_history_public           :boolean          default(FALSE), not null
+#  trust_level_locked            :boolean          default(FALSE), not null
 #
 # Indexes
 #
 #  index_users_on_auth_token      (auth_token)
-#  index_users_on_email           (email) UNIQUE
+#  index_users_on_authrocket_id   (authrocket_id)
 #  index_users_on_last_posted_at  (last_posted_at)
+#  index_users_on_last_seen_at    (last_seen_at)
 #  index_users_on_username        (username) UNIQUE
 #  index_users_on_username_lower  (username_lower) UNIQUE
 #
